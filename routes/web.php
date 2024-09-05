@@ -16,11 +16,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('front.index');
+})->name('home');
+
+Route::get('/about', function () {
+    return view('front.about');
+})->name('about');
+
+
+Route::get('/bzo', function () {
+    return view('bzo');
 });
 
-
-Route::get('/bzo',function (){
-   return view('bzo');
-});
-
-Route::get("/home",[HomeController::class,'index']);
+Route::get("/home", [HomeController::class, 'index']);
