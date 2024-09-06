@@ -24,7 +24,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [HomeController::class, "index"])->name("home");
 Route::get("/about", [HomeController::class, "about"])->name("about");
-Route::get("/contact", [HomeController::class, "contact"])->name("contact");
+Route::get("/contact", [\App\Http\Controllers\ContactController::class, "showForm"])->name("contact");
+Route::post("/contact", [\App\Http\Controllers\ContactController::class, "contact"]);
+Route::post("/user/{id}", [\App\Http\Controllers\ContactController::class, "user"])->name("user");
+//Route::post("/user/{id}", [\App\Http\Controllers\ContactController::class, "user"])->name("user")->where("id", "[0-9]+");
+//todo soru işareti isteğe bağlı gönderilir
+//Route::post("/user/{id}/{name?}", [\App\Http\Controllers\ContactController::class, "user"])
+//    ->name("user")
+//    ->where(["id" => "[0-9]+", "name" => "[a-zA-Z]+"]);
+
 Route::get('/bzo', function () {
     return view('bzo');
 });
