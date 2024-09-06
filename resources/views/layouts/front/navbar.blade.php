@@ -16,7 +16,7 @@
             <li class="nav-item">
                 <a class="nav-link {{Route::is("about")?"active":""}}" href="{{route("about")}}">About</a>
                 {{--                <a class="nav-link {{request()->route()->getName()=="about" ?"active":""}}" href="{{route("about")}}">About</a>--}}
-                
+
             </li>
         </ul>
 
