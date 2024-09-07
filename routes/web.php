@@ -7,8 +7,6 @@ use App\Http\Controllers\SupportFormController;
 use App\Http\Controllers\ContactController;
 
 
-
-
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,12 +58,26 @@ Route::put("/users/{id}/tumunu-guncelle", [UserController::class, "updateAll"])-
 Route::delete("/users/{id}/sil", [UserController::class, "delete"])->name("user.delete");
 
 //todo  any => tüm methodları alabilir get post put patch delete...
-Route::any("/hersey",function (){
+Route::any("/hersey", function () {
     dd("her şey geldi");
 });
 
-//todo resource => alacağı tüm methodları otomatik olarak oluşturur
+//todo  resource => alacağı tüm methodları otomatik olarak oluşturur
 Route::resource("article", ArticleController::class);
 
-//todo resource => alacağı tüm API methodları otomatik olarak oluşturur
-Route::apiResource("/api/article",App\Http\Controllers\Api\ArticleController::class);
+//todo  resource => alacağı tüm API methodları otomatik olarak oluşturur
+Route::apiResource("/api/article", App\Http\Controllers\Api\ArticleController::class);
+
+//todo  Route::whereNumber(), Route::whereAlpha(), Route::whereAlphaNumeric(), Route::whereIn() kullanımı
+Route::get("/users1/{id}", [UserController::class, "showId"])
+    ->name("user.showId")
+    ->whereNumber("id");
+Route::get("/users2/{name}", [UserController::class, "showName"])
+    ->name("user.showName")
+    ->whereAlpha("name");
+Route::get("/users3/{nameId}", [UserController::class, "showNameId"])
+    ->name("user.showNameId")
+    ->whereAlphaNumeric("nameid");
+Route::get("/user/{role}", [UserController::class, "roleCheck"])
+    ->name("user.roleCheck")
+    ->whereIn("role",["admin","user"]);
