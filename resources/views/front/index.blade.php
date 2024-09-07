@@ -8,6 +8,12 @@
     <hr>
     içerik alanı
     <hr>
+    gelen yaş değeri : {{$age??"yaş değeri gönderilmedi"}}
+    <hr>
+    gelen isim değeri : {{$name??"isim değeri gönderilmedi"}}
+
+    <hr>
+
 @endsection
 
 

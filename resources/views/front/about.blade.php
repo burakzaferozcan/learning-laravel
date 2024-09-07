@@ -5,7 +5,12 @@
 
 @section("icerik")
     <hr>
-        About section
+    About section
+    <hr>
+    gelen yaş değeri :{{$age??$person->age}}
+    <hr>
+    gelen isim değeri : {{$name??$person->name}}
+
     <hr>
 @endsection
 

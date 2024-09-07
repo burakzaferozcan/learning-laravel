@@ -88,9 +88,8 @@ Route::prefix("admin")->group(function () {
     Route::get("/article/{id}/delete", [ArticleController::class, "destroy"])->name("admin.articleDestroy");
 });
 
-Route::controller([UserController::class])->group(function () {
-    Route::get("/get-user","getUser");
-    Route::get("/delete-user","deleteUser");
-
-});
+//Route::controller([UserController::class])->group(function () {
+//    Route::get("/get-user","getUser");
+//    Route::get("/delete-user","deleteUser");
+//});
 
