@@ -80,4 +80,17 @@ Route::get("/users3/{nameId}", [UserController::class, "showNameId"])
     ->whereAlphaNumeric("nameid");
 Route::get("/user/{role}", [UserController::class, "roleCheck"])
     ->name("user.roleCheck")
-    ->whereIn("role",["admin","user"]);
+    ->whereIn("role", ["admin", "user"]);
+
+//todo  Route::prefix(), Route::group() bir controller'ı birden fazla route ile kullanmak
+Route::prefix("admin")->group(function () {
+    Route::get("/edit-article", [ArticleController::class, "edit"])->name("admin.articleEdit");
+    Route::get("/article/{id}/delete", [ArticleController::class, "destroy"])->name("admin.articleDestroy");
+});
+
+Route::controller([UserController::class])->group(function () {
+    Route::get("/get-user","getUser");
+    Route::get("/delete-user","deleteUser");
+
+});
+

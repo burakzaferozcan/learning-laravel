@@ -44,10 +44,11 @@ class ArticleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $id="0")
     {
         //
-        dd("$id numaralı makale edit");
+//        dd("$id numaralı makale edit");
+        return view("admin.articles.edit");
 
     }
 
@@ -66,7 +67,7 @@ class ArticleController extends Controller
     public function destroy(string $id)
     {
         //
-        dd("$id numaralı makale sil");
+        dd("$id numaralı makale silindi");
 
     }
 }
