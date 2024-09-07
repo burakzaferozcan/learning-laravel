@@ -22,6 +22,12 @@ use Illuminate\Support\Facades\Route;
 //    return view('front.about');
 //})->name('about');
 
+Route::get('/bzo', function () {
+    return view('bzo');
+});
+Route::get("/home", [HomeController::class, 'index']);
+
+
 Route::get("/", [HomeController::class, "index"])->name("home");
 Route::get("/about", [HomeController::class, "about"])->name("about");
 Route::get("/contact", [\App\Http\Controllers\ContactController::class, "showForm"])->name("contact");
@@ -33,8 +39,6 @@ Route::post("/user/{id}", [\App\Http\Controllers\ContactController::class, "user
 //    ->name("user")
 //    ->where(["id" => "[0-9]+", "name" => "[a-zA-Z]+"]);
 
-Route::get('/bzo', function () {
-    return view('bzo');
-});
+//todo birden fazla method türü match ile desteklenebilir
+Route::match(["get", "post"], "/support-form", [\App\Http\Controllers\SupportFormController::class, "support"])->name("support-form.support");
 
-Route::get("/home", [HomeController::class, 'index']);

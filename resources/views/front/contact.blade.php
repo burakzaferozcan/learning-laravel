@@ -37,6 +37,23 @@
         </form>
     </div>
     <hr>
+    <hr>
+    <hr>
+    <h1>
+        support form
+    </h1>
+    <div class="col-8 mx-auto">
+        <form action="{{route("support-form.support")}}">
+            @csrf
+            {{--        <input type="hidden" name="_token" value="{{csrf_token()}}">--}}
+            <input type="text" class="form-control" name="fullname">
+            <br>
+            <input type="email" class="form-control" name="email">
+            <br>
+            <button class="btn btn-success" type="submit">Gönder</button>
+        </form>
+    </div>
+    <hr>
 
 @endsection
 
