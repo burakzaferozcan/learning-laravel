@@ -25,7 +25,7 @@ class HomeController extends Controller
 
     public function about()
     {
-        $age = 23;
+        $age = 0;
         $name = "burak";
         $person = new \stdClass();
         $person->age = $age;
